@@ -17,7 +17,7 @@
 #include <armadillo>
 #include <chrono>
 
-#include "libscmpp.h"
+#include "libnn2pp.h"
 
 using namespace std;
 using namespace arma;
@@ -633,7 +633,7 @@ int main(int argc, char* argv[]) {
   bool converged = false;
   for (double& duration : durations) {
     double eg = eg_analytical(Q, R, T, A, v, g_fun, g_fun);
-    string msg = status(t, eg, datum::nan, datum::nan, Q, R, T, A, v);
+    string msg = status(t, eg, datum::nan, datum::nan, datum::nan, datum::nan, Q, R, T, A, v);
     cout << msg << endl;
     fprintf(logfile, "%s\n", msg.c_str());
     fflush(logfile);
@@ -649,7 +649,7 @@ int main(int argc, char* argv[]) {
   }
   if (!converged) {
     double eg = eg_analytical(Q, R, T, A, v, g_fun, g_fun);
-    string msg = status(t, eg, datum::nan, datum::nan, Q, R, T, A, v);
+    string msg = status(t, eg, datum::nan, datum::nan, datum::nan, datum::nan, Q, R, T, A, v);
     cout << msg << endl;
     fprintf(logfile, "%s\n", msg.c_str());
     fflush(logfile);
